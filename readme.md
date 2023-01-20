@@ -31,3 +31,53 @@ fn search(nums: Vec<i32>, target: i32) -> i32 {
     return index;
 }
 ````
+
+## 枚举 和 结构体的使用
+````rust
+enum IpAddrKind {
+    v4(String,u32),
+    v6(String)
+}
+struct IpAddr {
+    kind: IpAddrKind,
+    address: String,
+}
+
+fn enum_test_fn(){
+    let m1:IpAddr = IpAddr { 
+        kind: IpAddrKind::v4(String::from("123"),456),
+         address: String::from("123")
+    };
+    let m2:IpAddr = IpAddr { 
+        kind: IpAddrKind::v6(String::from("456")), 
+        address:String::from("123")
+    };
+}
+````
+
+
+## 枚举和方法的使用
+
+````RUST
+#[derive(Debug)]
+struct User{
+    username:String,
+    password:String,
+    age:i32
+}
+
+
+
+impl User {
+    fn getInfo(&self)->i32{
+        self.age*5
+    }
+    fn is_big_than_30(&self)->bool{
+        self.age > 30
+    }
+
+    fn which_is_old(&self,other:&User)->bool{
+        return self.age>other.age;
+    }
+}
+````
